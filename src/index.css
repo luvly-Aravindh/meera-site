@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: 'The Brewfine';
+  src: url('./fonts/The\ Brewfine.otf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-brewfine {
+  font-family: 'The Brewfine';
+}
+
+
+@font-face {
+  font-family: 'New York';
+  src: url('./fonts/NewYork.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+/* .mt{
+  font-family: ;
+} */

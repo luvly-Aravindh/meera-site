@@ -1,0 +1,20 @@
+h1, h2, h3, h4 {
+  font-family: "Onest", sans-serif;
+}
+
+p{
+  font-family: "Gantari", sans-serif;
+}
+@font-face {
+  font-family: "Brewfine";
+  src: url("./assets/fonts/Brewfine.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+body{
+  overflow-x: hidden;
+}
+:root{
+  overflow-x: hidden;
+}
+
