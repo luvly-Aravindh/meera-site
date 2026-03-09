@@ -1,118 +1,95 @@
 import React from "react";
-import groupImage from "../assets/g-1.png";
+import logo from "../assets/logo.png";
+import maleShot from "../assets/man-1.png";
+import femaleShot from "../assets/lady-1.png";
+import meeraCutout from "../assets/meera-portraitt.png";
 
-const GREEN = "#6DB54A";
-
-export default function LeadershipTrust() {
+function ReelCard({ image }) {
   return (
-    <section className="w-full bg-white py-10 lg:py-24">
-      <div className="max-w-[90rem] mx-auto px-6 lg:px-10">
-        {/* Heading block centered like ref */}
-        <header className="text-center">
-          <h2 className="text-[26px] sm:text-[34px] lg:text-[40px] font-extrabold leading-tight text-neutral-900">
-            Why Hundreds of Leaders Trust Me to Rewrite Their
-          </h2>
-          <p
-            className="mt-1 italic font-brewfine text-[34px] sm:text-[40px] lg:text-[46px] leading-tight"
-            style={{ color: "#70A636"}}
-          >
-            Life and Career Trajectory
-          </p>
-        </header>
+    <article className="w-[245px] sm:w-[265px] lg:w-[286px] rounded-[3px] overflow-hidden bg-white shadow-[0_1px_0_rgba(0,0,0,0.04)]">
+      <div className="h-[92px] bg-white border-b border-[#ece7e2] flex items-center justify-center">
+        <img src={logo} alt="Meera Grover" className="h-[56px] w-auto object-contain" />
+      </div>
 
-        {/* 2-col content like the screenshot */}
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-0 items-start">
-     {/* LEFT: Image */}
-<div className="order-1 flex items-stretch">
-  <img
-    src={groupImage}
-    alt="Leaders group"
-    className="w-full max-w-[580px] lg:w-fit lg:h-full rounded-[12px] object-cover shadow-sm h-full"
-    loading="lazy"
-  />
-</div>
+      <div className="h-[240px] sm:h-[260px] lg:h-[300px] bg-[#efefef]">
+        <img src={image} alt="Client video testimonial" className="h-full w-full object-cover" />
+      </div>
 
+      <div className="relative bg-[#f5811f] h-[130px] px-4 pt-3 overflow-hidden">
+        <p className="font-onest text-white uppercase tracking-[0.08em] text-[11px]">Building</p>
+        <p className="font-onest font-black text-black text-[48px] leading-[0.9] uppercase">Leaders</p>
+        <p className="font-onest text-white text-[10px] tracking-[0.55em] uppercase mt-1">Who Drive</p>
+        <p className="font-onest font-black text-[#f5b06f] text-[56px] leading-[0.86] uppercase">Change</p>
 
-          {/* RIGHT: Copy */}
-          <div className="order-2 md:pl-2">
-            <div className="text-[15px] sm:text-[20px] leading-[1.75] text-neutral-700 font-gantari">
-              <p>
-                Over the last two decades, I’ve trained and coached <br className="hidden sm:block"/> hundreds of ambitious
-                professionals and witnessed <br className="hidden sm:block"/> one powerful truth: when you learn to lead with<br className="hidden sm:block"/>
-                presence, clarity, and authenticity, the recognition and <br className="hidden sm:block"/>opportunities you
-                deserve start flowing toward you.
-              </p>
+        <img
+          src={meeraCutout}
+          alt=""
+          aria-hidden
+          className="absolute bottom-0 right-[-20px] h-[102px] w-auto object-contain"
+        />
+      </div>
+    </article>
+  );
+}
 
-              <p className="mt-5">
-                I don’t believe in one-size-fits-all leadership advice.<br className="hidden sm:block"/> My approach blends{" "}
-                <strong>NLP</strong>, neuroscience, and<br className="hidden sm:block"/> leadership psychology designed for deep,
-                human <br className="hidden sm:block"/>transformation, not quick fixes.
+export default function Fourth() {
+  return (
+    <section className="w-full bg-[#f3f1ef] py-12 sm:py-16 lg:py-20">
+      <div className="mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_560px] gap-10 lg:gap-14 items-start">
+          <div>
+            <div className="flex items-center gap-3">
+              <span className="h-[2px] w-8 bg-[#f5811f]" />
+              <p className="font-nicky uppercase tracking-[0.16em] text-[12px] text-[#f5811f]">
+                Why Work With Me
               </p>
             </div>
 
-            <h3 className="mt-6 text-[16px] sm:text-[20px] font-extrabold text-neutral-900">
-              I’ll help you:
-            </h3>
+            <h2 className="mt-6 text-[#111] font-semibold text-[45px] sm:text-[62px] lg:text-[62px] leading-[1.02]">
+              <span className="block">You're Not Here</span>
+              <span className="block">to <span className="text-[#f5811f] font-elmessiri font-normal">Blend In</span></span>
+            </h2>
 
-            {/* Bullets like the mock (small dots, tidy spacing) */}
-            <ul className="mt-3 list-disc list-outside pl-5 text-[15px] sm:text-[20px] leading-[1.7] text-neutral-800 space-y-2">
-              <li>Strengthen strategic leadership and executive presence</li>
-              <li>Apply emotional intelligence and resilience to lead under pressure</li>
-              <li>Navigate conflict, communication, and team dynamics with composure</li>
-              <li>Master strategic thinking, decision-making, and influence without burnout</li>
-            </ul>
+            <div className="mt-6 text-black text-[120px] leading-[0.8] font-black font-onest">“</div>
 
-            <p className="mt-4 text-[15px] sm:text-[20px] text-neutral-700">And much more…</p>
-            <p className="mt-4 text-[15px] sm:text-[20px] text-neutral-700">Whether you’re aiming to rise within your organization or pivot toward something bigger, we’ll work together to unlock the leader you already are.</p>
+            <p className="mt-2 font-onest text-[#7a7068] text-[18px]">You're here to lead.</p>
 
-            {/* CTA like screenshot: solid black, no shine. Light hover only. */}
-            <div className="mt-6 flex justify-center sm:justify-start">
+            <div className="mt-8 space-y-4 max-w-[560px]">
+              <p className="font-onest text-[#7a7068] text-[16px] leading-[1.75]">
+                Through leadership &amp; career coaching and executive leadership coaching, I help
+                ambitious professionals build executive presence, communicate with clarity, and create a
+                strong brand &amp; identity that gets noticed.
+              </p>
+              <p className="font-onest text-[#7a7068] text-[16px] leading-[1.75]">
+                If you feel overlooked despite delivering results, it's not a capability gap, it's a
+                visibility and positioning gap.
+              </p>
+              <p className="font-onest text-[#7a7068] text-[16px] leading-[1.75]">
+                It's time to step forward, own your leadership, and create impact on your terms.
+              </p>
+            </div>
 
-    <button
-  onClick={() => {
-    setTimeout(() => {
-      document
-        .getElementById("your-program")
-        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 100);
-  }}
-  className="group relative overflow-hidden
-             inline-flex items-center justify-center
-             rounded-md px-8 sm:px-10 py-4 sm:py-5
-             text-sm sm:text-[20px] font-bold tracking-[0.3px]
-             bg-[#000] text-[#fff]
-             border border-[#f5f5f5]
-             shadow-[0_6px_0_#ea7c22]
-             transition-all duration-500 ease-out
-             hover:scale-105 hover:-translate-y-1
-             hover:shadow-[0_12px_20px_rgba(234,124,34,0.5)]
-             active:translate-y-[2px] active:shadow-[0_4px_0_#ea7c22]
-             max-w-[320px] sm:max-w-[480px] text-center"
->
-  {/* Button Text */}
-  <span className="relative z-10">
-    Let’s Build Your Leadership Blueprint
-  </span>
+            <button
+              type="button"
+              onClick={() => {
+                document.getElementById("your-program")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="mt-9 inline-flex items-center justify-center bg-[#f5811f] hover:bg-[#e47416] text-white font-nicky uppercase tracking-[0.11em] text-[13px] px-8 py-4 transition-colors duration-200"
+            >
+              Claim Your Leadership
+            </button>
+          </div>
 
-  {/* Shine Sweep */}
-  <span
-    className="absolute top-0 -left-[60%] w-[50%] h-full
-               bg-[#ea7c22]/40
-               transition-all duration-[1000ms] ease-[cubic-bezier(0.4,0,0.2,1)]
-               [clip-path:polygon(0%_0%,55%_0%,100%_100%,25%_100%)]
-               group-hover:left-[130%] group-hover:opacity-0"
-  />
+          <div>
+            <div className="flex items-start justify-center lg:justify-end gap-4 sm:gap-6">
+              <ReelCard image={maleShot} />
+              <ReelCard image={femaleShot} />
+            </div>
 
-  {/* Subtle Overlay */}
-  <span
-    className="absolute inset-0 bg-[#ea7c22]/10
-               opacity-0 group-hover:opacity-100
-               transition-opacity duration-500"
-  />
-</button>
-</div>
-
-            <p className="mt-6 text-[15px] lg:text-[20px] text-center lg:text-start">Join the 500+ leaders who’ve stepped into their power.</p>
+            <div className="mt-7 flex justify-center lg:justify-start gap-8 text-[#8d847d] text-[30px] leading-none pl-0 lg:pl-4">
+              <button type="button" aria-label="Previous testimonial" className="hover:text-[#6f665f] transition-colors">←</button>
+              <button type="button" aria-label="Next testimonial" className="hover:text-[#6f665f] transition-colors">→</button>
+            </div>
           </div>
         </div>
       </div>

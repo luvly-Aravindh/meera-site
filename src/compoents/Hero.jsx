@@ -1,124 +1,150 @@
-import React from "react";
-import bgDesktop from "../assets/black.jpg";
-import bgMobile from "../assets/black-mob.jpg";
+import React, { useEffect, useRef, useState } from "react";
+import heroImage from "../assets/Hero.png";
 
 export default function Hero() {
+  const statsRef = useRef(null);
+  const rafRef = useRef(null);
+  const [counts, setCounts] = useState({
+    leaders: 0,
+    professionals: 0,
+    years: 0,
+  });
+
+  useEffect(() => {
+    const statsElement = statsRef.current;
+    if (!statsElement) return;
+
+    let hasAnimated = false;
+    const duration = 1400;
+    const targets = {
+      leaders: 1200,
+      professionals: 7500,
+      years: 21,
+    };
+
+    const animateCounters = () => {
+      const startTime = performance.now();
+
+      const tick = (now) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+
+        setCounts({
+          leaders: Math.round(targets.leaders * eased),
+          professionals: Math.round(targets.professionals * eased),
+          years: Math.round(targets.years * eased),
+        });
+
+        if (progress < 1) {
+          rafRef.current = requestAnimationFrame(tick);
+        }
+      };
+
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && !hasAnimated) {
+          hasAnimated = true;
+          animateCounters();
+          observer.unobserve(statsElement);
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(statsElement);
+
+    return () => {
+      observer.disconnect();
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
   return (
-    <section
-      className="
-        relative w-full font-sans
-        min-h-[160svh]
-        sm:min-h-[110svh]
-        lg:min-h-[85svh]
-      "
-    >
-      {/* ===== Background ===== */}
-      <picture>
-        <source srcSet={bgMobile} media="(max-width: 767px)" />
-        <img
-          src={bgDesktop}
-          alt="Leadership coaching banner"
-          className="absolute inset-0 w-full h-full object-cover"
-          loading="eager"
-          decoding="async"
-        />
-      </picture>
+    <section className="w-full bg-[#efefef]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[88vh]">
+        <div className="bg-[#f1f1f1] px-6 sm:px-10 lg:px-14 xl:px-16 py-10 sm:py-12 lg:py-14 flex items-center">
+          <div className="w-full max-w-[590px] mx-auto text-center lg:text-left">
+            <div className="flex items-center justify-center lg:justify-start gap-4">
+              <span className="h-[2px] w-8 bg-[#f47b20]" />
+              <p className="font-nicky text-[11px] sm:text-[13px] tracking-[0.16em] uppercase text-[#f47b20] font-semibold">
+                Executive Leadership Coaching
+              </p>
+            </div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0" />
+            <h1 className="mt-7 text-[#111111] leading-[1.02] font-semibold text-[44px] sm:text-[58px] lg:text-[64px]">
+              <span className="block">Build Influence,</span>
+              <span className="block text-[#f47b20] font-elmessiri font-normal mt-1">
+                Presence,
+              </span>
+              <span className="block mt-0">and Impact</span>
+            </h1>
 
-      {/* ===== Content ===== */}
-      <div
-        className="
-          relative z-[2]
-          max-w-[105rem] mx-auto
-          px-3 sm:px-10 lg:px-12
-          py-10 sm:py-16 lg:py-16
-          grid grid-cols-1 md:grid-cols-2
-          gap-8 sm:gap-10 lg:gap-16
-          items-start md:items-center
-        "
-      >
-        {/* LEFT TEXT */}
-        <div className="text-white md:pr-10 break-words">
-          <h1 className="text-[23px] sm:text-[36px] lg:text-[40px] text-[#353535] font-extrabold leading-snug text-center md:text-left">
-            <span className="block">Executive Leadership Coaching</span>
-            <span className="block">to Build Influence, Presence,</span>
-            <span className="block">and <span
-              className="
-                font-normal italic font-brewfine text-[#353535]
-                text-[25px] sm:text-[40px] lg:text-[40px]
-                leading-[1.1] tracking-[0.5px]
-              "
-            >
-Impact            </span></span>
-            
-          </h1>
+            <p className="mt-7 text-[#6a6059] text-[17px] leading-[1.8] max-w-[520px] mx-auto lg:mx-0 font-medium">
+              Ready to be seen, heard, and unstoppable in your leadership? I
+              help ambitious leaders rise through leadership &amp; career
+              coaching, strengthening confidence, influence, and a clear brand
+              &amp; identity. With 21+ years across global organizations, I
+              help you go from overlooked to undeniable.
+            </p>
 
-          <p className="mt-5 text-[15px] sm:text-[20px] leading-relaxed text-[#353535] max-w-[700px] mx-auto md:mx-0 text-center md:text-left font-gantari">
-           Ready to be seen, heard, and unstoppable in your leadership? I help ambitious leaders rise through leadership & career coaching, strengthening confidence, influence, and a clear brand & identity. 
-          </p>
-
-          <p className="mt-5 text-[15px] sm:text-[20px] leading-relaxed text-[#353535] max-w-[700px] mx-auto md:mx-0 text-center md:text-left font-gantari">
-           With 21+ years across global organizations, I help you go from overlooked to undeniable.
-
-          </p>
-
-          {/* Button */}
-          <div className="mt-8 flex flex-col items-center md:items-start">
             <button
               type="button"
               onClick={() => {
-                setTimeout(() => {
-                  document
-                    .getElementById("your-program")
-                    ?.scrollIntoView({ behavior: "smooth" });
-                }, 100);
+                document
+                  .getElementById("your-program")
+                  ?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="
-                group relative overflow-hidden
-                inline-flex items-center justify-center
-                rounded-md px-6 sm:px-10 py-4 sm:py-5
-                text-sm sm:text-[20px] font-bold
-                bg-white text-[#212D38]
-                border border-[#f5f5f5]
-                shadow-[0_6px_0_#ea7c22]
-                transition-all duration-500
-                hover:scale-105 hover:-translate-y-1
-                active:translate-y-[2px]
-                max-w-full text-center
-              "
+              className="mt-10 mx-auto lg:mx-0 inline-flex items-center justify-center bg-[#f47b20] hover:bg-[#df6f1b] text-white font-nicky uppercase tracking-[0.1em] text-[12px] sm:text-[13px] px-8 sm:px-10 py-4 transition-colors duration-200"
             >
-              <span className="relative z-10">
-             Step Into Your Power
-              </span>
-
-              <span
-                className="
-                  absolute top-0 -left-[60%] w-[50%] h-full
-                  bg-[#ea7c22]/40
-                  transition-all duration-[1000ms]
-                  [clip-path:polygon(0%_0%,55%_0%,100%_100%,25%_100%)]
-                  group-hover:left-[130%] group-hover:opacity-0
-                "
-              />
-
-              <span
-                className="
-                  absolute inset-0 bg-[#ea7c22]/10
-                  opacity-0 group-hover:opacity-100
-                  transition-opacity duration-500
-                "
-              />
+              Step Into Your Power
             </button>
 
-            <p className="mt-4 lg:mt-6 text-base text-[#353535] text-center md:text-left font-gantari">
-1,200+ senior leaders coached | 7,500+ professionals trained globally | 21+ years in global L&D leadership            </p>
+            <div
+              ref={statsRef}
+              className="mt-10 sm:mt-12 border-t border-[#ddd7d2] pt-8 grid grid-cols-3 gap-6 lg:gap-4 text-center lg:text-left"
+            >
+              <div>
+                <p className="text-[#FC7900] text-[36px] leading-none font-elmessiri font-semibold">
+                  {counts.leaders.toLocaleString()}+
+                </p>
+                <p className="mt-2 font-nicky text-[9px] sm:text-[10px] lg:text-[11px] tracking-[0.08em] uppercase text-[#7E6E61] font-semibold">
+                  Senior Leaders Coached
+                </p>
+              </div>
+              <div>
+                <p className="text-[#FC7900] text-[36px] leading-none font-elmessiri   font-semibold ">
+                  {counts.professionals.toLocaleString()}+
+                </p>
+                <p className="mt-2 font-nicky text-[9px] sm:text-[10px] lg:text-[11px] tracking-[0.08em] uppercase text-[#7E6E61] font-semibold">
+                  Professionals Trained
+                </p>
+              </div>
+              <div>
+                <p className="text-[#FC7900] text-[36px] leading-none font-elmessiri   font-semibold">
+                  {counts.years.toLocaleString()}+
+                </p>
+                <p className="mt-2 font-nicky text-[9px] sm:text-[10px] lg:text-[11px] tracking-[0.08em] uppercase text-[#7E6E61] font-semibold">
+                  Years Global L&amp;D
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* RIGHT COLUMN */}
-        <div className="relative flex items-center justify-center md:justify-end" />
+        <div className="relative min-h-[48vh] lg:min-h-full">
+          <img
+            src={heroImage}
+            alt="Meera speaking on stage to an audience"
+            className="absolute inset-0 h-full w-full object-cover"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
       </div>
     </section>
   );

@@ -12,6 +12,8 @@ export default {
         brewfine: ["The Brewfine", "sans-serif"], // The Brewfine font
         ny: ["New York", "serif"],      
         afacad: ["Afacad", "sans-serif"],          // New York font
+        nicky: ['"Nicky Sans"', "sans-serif"],
+        elmessiri: ['"El Messiri"', "serif"],
       },
       keyframes: {
         scroll: {

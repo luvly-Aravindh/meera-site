@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Demo Popup</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+<!-- OPEN BUTTON -->
+<button
+onclick="openPopup()"
+class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700">
+Book Demo
+</button>
+
+<!-- POPUP -->
+<section id="popup"
+class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50 p-3 md:p-4 overflow-y-auto">
+
+<div class="bg-white w-full max-w-lg md:max-w-3xl rounded-2xl shadow-2xl p-5 md:p-8 relative">
+
+<!-- CLOSE BUTTON -->
+<button
+onclick="closePopup()"
+class="absolute top-4 right-4 text-gray-500 text-xl md:text-2xl font-bold hover:text-black">
+✕
+</button>
+
+<!-- HEADER -->
+<div class="text-center mb-6">
+
+<div class="flex justify-center mb-4">
+<img src="logo.png" alt="Logo" class="h-8 md:h-12 object-contain">
+</div>
+
+<h2 class="text-lg md:text-2xl font-bold">
+Book Your Private 1-on-1 Demo
+</h2>
+
+<p class="text-gray-600 mt-2 text-sm md:text-base">
+Get personalized insights on ROI, workflow automation and unified customer intelligence.
+</p>
+
+</div>
+
+<form class="space-y-4">
+
+<!-- NAME -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+
+<input type="text"
+placeholder="First Name *"
+class="border rounded-lg px-4 py-3 w-full text-sm md:text-base">
+
+<input type="text"
+placeholder="Last Name *"
+class="border rounded-lg px-4 py-3 w-full text-sm md:text-base">
+
+</div>
+
+<!-- EMAIL -->
+<input
+type="email"
+placeholder="Work Email Address *"
+class="border rounded-lg px-4 py-3 w-full text-sm md:text-base">
+
+<!-- PHONE -->
+<div class="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-3">
+
+<select class="border rounded-lg px-4 py-3 text-sm md:text-base w-full">
+<option>+91</option>
+<option>+1</option>
+<option>+44</option>
+<option>+971</option>
+</select>
+
+<input
+type="tel"
+placeholder="Phone Number *"
+class="border rounded-lg px-4 py-3 w-full text-sm md:text-base">
+
+</div>
+
+<!-- DROPDOWNS -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+
+<select class="border rounded-lg px-4 py-3 w-full text-sm md:text-base">
+<option>Which Team Are You With?</option>
+<option>Customer Success</option>
+<option>Customer Support</option>
+<option>Sales</option>
+<option>Onboarding</option>
+<option>People/Culture</option>
+<option>Other</option>
+</select>
+
+<select class="border rounded-lg px-4 py-3 w-full text-sm md:text-base">
+<option>When Would You Like Your Demo?</option>
+<option>This week</option>
+<option>Next week</option>
+<option>Later this month</option>
+</select>
+
+<select class="border rounded-lg px-4 py-3 w-full text-sm md:text-base">
+<option>What Are You Most Interested In?</option>
+<option>HelpDesk</option>
+<option>AccountCare</option>
+<option>OnboardHub</option>
+<option>SalesHub</option>
+<option>StarBoard</option>
+</select>
+
+<select class="border rounded-lg px-4 py-3 w-full text-sm md:text-base">
+<option>What’s Your Biggest Challenge Today?</option>
+<option>Churn</option>
+<option>Onboarding Delays</option>
+<option>SLA Slippage</option>
+<option>Forecast Accuracy</option>
+<option>Engagement</option>
+<option>Data Fragmentation</option>
+<option>Other</option>
+</select>
+
+</div>
+
+<!-- COMPANY -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+
+<input
+type="text"
+placeholder="Company Name"
+class="border rounded-lg px-4 py-3 text-sm md:text-base">
+
+<input
+type="text"
+placeholder="Job Title (Optional)"
+class="border rounded-lg px-4 py-3 text-sm md:text-base">
+
+</div>
+
+<!-- SUBMIT -->
+<button
+class="w-full bg-indigo-600 text-white py-3 md:py-3 rounded-lg font-semibold hover:bg-indigo-700 transition text-sm md:text-base">
+BOOK MY PRIVATE DEMO CALL
+</button>
+
+</form>
+
+</div>
+</section>
+
+<!-- SCRIPT -->
+<script>
+
+function openPopup(){
+document.getElementById("popup").classList.remove("hidden");
+document.getElementById("popup").classList.add("flex");
+}
+
+function closePopup(){
+document.getElementById("popup").classList.remove("flex");
+document.getElementById("popup").classList.add("hidden");
+}
+
+</script>
+
+</body>
+</html>

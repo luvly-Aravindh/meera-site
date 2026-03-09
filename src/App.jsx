@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Header from './compoents/Header'
 import Hero from './compoents/Hero'
-import Seondary from './compoents/Seondary'
+
 import Third from './compoents/Third'
 import Fourth from './compoents/Fourth'
 import Slider from './Slider'
@@ -22,15 +22,16 @@ import '@fontsource/onest'
 import '@fontsource/gantari'
 import '@fontsource/gantari/400.css'
 import '@fontsource/gantari/700.css'
+import '@fontsource/el-messiri/400.css'
 
 function HomePage() {
   return (
     <>
       <Hero />
-      <Seondary />
+   
       <Third />
       <Video />
-      <Fourth />
+      {/* <Fourth /> */}
       <New />
       <Slider />
       <Autoslider />
