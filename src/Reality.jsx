@@ -6,66 +6,61 @@ export default function RealityCheck() {
     {
       text:
         "61% of IT professionals say they feel stuck in their current roles, and most don’t know how to break through.",
-      source: "LinkedIn Workplace Report",
+      source: "LINKEDIN WORKPLACE REPORT",
     },
     {
       text:
-        "Over 50% of mid-career professionals report struggling with low confidence and visibility, despite delivering results.",
-      source: "Harvard Business Review",
+        "Over 50% of mid-career professionals report struggling with low confidence and visibility.",
+      source: "HARVARD BUSINESS REVIEW",
     },
     {
       text:
         "Women who receive leadership coaching are 3x more likely to be promoted within a year.",
-      source: "International Coaching Federation",
+      source: "INTERNATIONAL COACHING FEDERATION",
     },
   ];
 
   return (
-    <section className="relative w-full">
-      {/* Background */}
-      <div className="relative overflow-hidden md:h-[780px]">
-        <img
-          src={deskBg}
-          alt="Office desk background"
-          className="absolute inset-0 h-full w-full object-cover"
-          loading="lazy"
-          decoding="async"
-        />
-        {/* dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/40 md:bg-black/45" />
+   <section className="relative w-full mt-10">
+  {/* Background */}
+  <div className="relative  w-full">
+    <img
+      src={deskBg}
+      alt="Audience background"
+      className="absolute inset-0 w-full h-full object-cover"
+    />
 
-        {/* Content */}
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 md:py-16 flex flex-col items-center md:h-full md:justify-center">
-          {/* Title */}
-          <h2 className="text-center font-extrabold uppercase text-white tracking-wide text-[26px] md:text-[46px] font-onest leading-tight">
-            A Quick Reality Check for the Ambitious
-          </h2>
+    {/* overlay */}
+    <div className="absolute inset-0 bg-black/20" />
 
-          {/* Cards */}
-          <div className="mt-10 grid w-full gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {items.map((it, i) => (
-              <article
-                key={i}
-                className="bg-white/95 backdrop-blur-sm p-6 sm:p-7 rounded-md border border-neutral-200 shadow-[0_10px_24px_rgba(0,0,0,0.10)] flex flex-col h-full min-h-[220px]"
-              >
-                <p className="text-[16px] sm:text-[20px] leading-relaxed text-neutral-900 font-gantari flex-1">
-                  “{it.text}”
-                </p>
-                <p className="mt-0 lg:mt-5 text-[15px] sm:text-[16px] lg:text-[17px] text-neutral-900 font-semibold text-center lg:text-left">
-                  {it.source}
-                </p>
-              </article>
-            ))}
+    {/* Content */}
+    <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col items-center justify-center py-20">
+      
+      {/* Heading */}
+      <h2 className="text-white text-center font-bold text-[28px] md:text-[44px] leading-tight font-nickySans">
+        A Quick Reality Check for{" "}
+        <span className="text-[#F47A0B] font-elmessiri">THE AMBITIOUS</span>
+      </h2>
+
+      {/* Cards */}
+      <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+        {items.map((item, index) => (
+          <div
+            key={index}
+            className="bg-[#f3f3f3] p-8 flex flex-col justify-between min-h-[180px]"
+          >
+            <p className="text-gray-700 text-[15px] leading-relaxed">
+              {item.text}
+            </p>
+
+            <span className="mt-6 text-[12px] font-semibold text-[#FF7200] tracking-wider uppercase">
+              {item.source}
+            </span>
           </div>
-
-          {/* CTA space if needed */}
-          {/* <div className="mt-10">
-            <button className="px-8 py-3 bg-white text-neutral-900 rounded-md font-semibold shadow">
-              Book your breakthrough call
-            </button>
-          </div> */}
-        </div>
+        ))}
       </div>
-    </section>
+    </div>
+  </div>
+</section>
   );
 }

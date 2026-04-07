@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import heroImage from "../assets/Hero.png";
+import heroImage from "../assets/Hero.jpg";
 
 export default function Hero() {
   const statsRef = useRef(null);

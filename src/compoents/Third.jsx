@@ -34,12 +34,12 @@ export default function Third() {
 
         <button
           type="button"
-          className="mt-10 inline-flex items-center justify-center bg-[#F59E0B] hover:bg-[#D88907] text-black font-nicky uppercase tracking-[0.12em] text-[12px] px-8 py-4 transition-colors duration-200"
+          className="mt-10 inline-flex items-center justify-center bg-[#F59E0B] hover:bg-[#D88907] text-black font-nicky uppercase tracking-[0.12em] text-[12px] px-8 py-4 transition-colors duration-200 font-bold"
         >
           Step Into Your Power
         </button>
 
-        <p className="text-[#F59E0B] mt-14 text-[28px] sm:text-[36px] font-elmessiri leading-tight max-w-4xl mx-auto">
+        <p className="text-[#F59E0B] mt-14 text-[28px] sm:text-[25px] font-elmessiri leading-tight max-w-4xl mx-auto mb-14">
           15+ national and international certifications supporting leadership transformation
         </p>
 

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import logo from '../assets/logo.png'
 
 const linkBase =
-  'font-nicky text-[9px] sm:text-[10px] md:text-[14px] uppercase tracking-[0.08em] text-[#776760] hover:text-[#4f443f] transition-colors duration-200'
+  'font-nicky shrink-0 whitespace-nowrap text-[9px] sm:text-[10px] md:text-[14px] uppercase tracking-[0.08em] text-[#776760] hover:text-[#4f443f] transition-colors duration-200'
 
 const navItems = [
   { label: 'Home', to: '/' },

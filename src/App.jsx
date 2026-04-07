@@ -4,7 +4,7 @@ import Hero from './compoents/Hero'
 
 import Third from './compoents/Third'
 import Fourth from './compoents/Fourth'
-import Slider from './Slider'
+
 import Autoslider from './compoents/Autoslider'
 import Leadership from './Leadership'
 import Reality from './Reality'
@@ -17,12 +17,17 @@ import SignaturePrograms from './pages/SignaturePrograms'
 import WhyWorkWithMe from './pages/WhyWorkWithMe'
 import TheMeeraGroverEffect from './pages/TheMeeraGroverEffect'
 import Blogs from './pages/Blogs'
+import Help from './pages/Help'
+import Perfmance from "../src/pages/Perfamnce"
+import Inspire from "../src/pages/Inspire"
+
 import './App.css'
 import '@fontsource/onest'
 import '@fontsource/gantari'
 import '@fontsource/gantari/400.css'
 import '@fontsource/gantari/700.css'
 import '@fontsource/el-messiri/400.css'
+import Behind from './pages/Behind'
 
 function HomePage() {
   return (
@@ -33,12 +38,12 @@ function HomePage() {
       <Video />
       {/* <Fourth /> */}
       <New />
-      <Slider />
-      <Autoslider />
+      
+      {/* <Autoslider />
       <Leadership />
       <Reality />
       <Reminder />
-      <Green />
+      <Green /> */}
     </>
   )
 }
@@ -84,6 +89,10 @@ function App() {
           <>
             <Header />
             <WhyWorkWithMe />
+            <Help />
+            <Behind/>
+            <Perfmance/>
+            <Inspire/>
             <Footer />
           </>
         }

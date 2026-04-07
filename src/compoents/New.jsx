@@ -1,147 +1,73 @@
-// LeadershipTransformation.jsx
-import React, { useRef, useEffect, useState } from "react";
-import leadershipImg from "../assets/g-2.png";
+import React from "react";
 
-const GREEN = "#6DB54A";
+const cards = [
+  {
+    tag: "Executive Presence",
+    title: "Why Competence Alone Won't Get You Promoted",
+    description:
+      "Being brilliant at your job is necessary - but it's not sufficient. Here's the visibility gap that's holding you back.",
+  },
+  {
+    tag: "Executive Presence",
+    title: "Why Competence Alone Won't Get You Promoted",
+    description:
+      "Being brilliant at your job is necessary - but it's not sufficient. Here's the visibility gap that's holding you back.",
+  },
+  {
+    tag: "Executive Presence",
+    title: "Why Competence Alone Won't Get You Promoted",
+    description:
+      "Being brilliant at your job is necessary - but it's not sufficient. Here's the visibility gap that's holding you back.",
+  },
+];
 
-export default function LeadershipTransformation() {
-  const bullets = [
-    "Build strategic, emotionally intelligent leadership pipelines through NLP-based coaching",
-    "Strengthen manager effectiveness, team synergy, and communication across levels",
-    "Develop influential leadership, decision-making, and executive gravitas in mid and senior managers",
-    "Foster inclusive, resilient, and innovation-driven cultures that elevate performance and collaboration",
-  ];
-
-  const rightRef = useRef(null);
-  const [rightHeight, setRightHeight] = useState("auto");
-
-  useEffect(() => {
-    if (rightRef.current) {
-      setRightHeight(`${rightRef.current.offsetHeight}px`);
-    }
-  }, []);
-
+function InsightCard({ tag, title, description }) {
   return (
-    <section className="relative w-full overflow-hidden bg-white">
-      {/* soft background */}
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-[#F7FAF8] to-white"
-      />
+    <article className="overflow-hidden rounded-[8px] border border-[#dcd5cf] bg-[#FDF5EF]">
+      <div className="h-[150px] sm:h-[165px] lg:h-[180px] bg-[#edd4af]" />
+      <div className="px-6 py-5 sm:px-7 sm:py-6 bg-[#f3f1ef]">
+        <p className="font-nicky uppercase tracking-[0.14em] text-[11px] font-bold text-[#FC7900]">
+          {tag}
+        </p>
 
-      <div className="max-w-[90rem] mx-auto px-5 sm:px-6 lg:px-10 py-2 lg:py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-          {/* RIGHT on desktop, FIRST on mobile */}
-          <div
-            className="lg:col-span-6 order-1 lg:order-2 lg:pl-4"
-            style={{ height: rightHeight }}
-          >
-            <div className="relative h-full">
-              <img
-                src={leadershipImg}
-                alt="Leadership transformation"
-                className="w-full h-full max-w-[680px] rounded-[14px] object-cover shadow-[0_10px_40px_rgba(0,0,0,0.12)]"
-                loading="lazy"
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -z-10 -top-6 -right-6 h-56 w-56 rounded-full blur-3xl opacity-25"
-                style={{
-                  background:
-                    "radial-gradient(50% 50% at 50% 50%, #6DB54A 0%, rgba(109,181,74,0) 70%)",
-                }}
-              />
-            </div>
-          </div>
+        <h3 className="mt-2 font-elmessiri text-[#242321] font-semibold text-[20px] leading-[1.28]">
+          {title}
+        </h3>
 
-          {/* LEFT on desktop, SECOND on mobile */}
-          <div className="lg:col-span-6 order-2 lg:order-1" ref={rightRef}>
-            <h2 className="text-[30px] sm:text-[36px] lg:text-[40px] font-extrabold leading-tight text-neutral-900 text-center lg:text-left">
-              Leadership <br className="hidden sm:block" /> Transformation for
-            </h2>
-            <p
-              className="mt-1 italic font-brewfine leading-tight
-                         text-[34px] sm:text-[42px] lg:text-[46px]"
-              style={{ color: "#69B53C" }}
-            >
-              Teams & Organizations
-            </p>
+        <p className="mt-3 font-nicky text-[#7e746c] text-[14px] leading-[1.56]">
+          {description}
+        </p>
+      </div>
+    </article>
+  );
+}
 
-            <p className="mt-6 lg:mt-4 text-[15px] sm:text-[20px] text-neutral-700">
-              Because the strongest organizations grow from the inside out.
-            </p>
+export default function New() {
+  return (
+    <section className="w-full bg-[#FDF5EF] py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-10">
+        <header className="text-center">
+          <p className="font-nickySans uppercase tracking-[0.16em] text-[12px] font-medium text-[#f5811f]">
+            Ideas & Insights
+          </p>
 
-            <div className="mt-5 lg:mt-2 space-y-4 text-neutral-700">
-              <p className="text-[15px] sm:text-[20px] leading-relaxed">
-                Beyond individual coaching and training, I partner with
-                forward-thinking companies to help their leaders, managers, and
-                teams build the clarity, confidence, and emotional intelligence
-                required to thrive in today’s workplace.
-              </p>
-              <p className="text-[15px] sm:text-[20px] leading-relaxed">
-                My corporate programs integrate NLP-based coaching, experiential
-                learning, and proven frameworks that drive real behavioral
-                change.
-              </p>
-            </div>
+          <h2 className="mt-3 font-nickySans text-[44px] sm:text-[54px] lg:text-[62px] leading-[1.06] text-[#232220] font-semibold">
+            Inspire Your{" "}
+            <span className="text-[#f5811f] font-elmessiri font-normal">
+              Next Move
+            </span>
+          </h2>
+        </header>
 
-            <h3 className="mt-7 lg:mt-2 text-[15px] sm:text-[20px] font-extrabold text-neutral-900">
-              I work with organizations to:
-            </h3>
-            <ul className="mt-3 list-disc list-outside pl-5 space-y-3 text-neutral-800">
-              {bullets.map((b, i) => (
-                <li key={i} className="text-[15px] sm:text-[20px] leading-relaxed">
-                  {b}
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8">
-              <button
-                onClick={() => {
-                  setTimeout(() => {
-                    document
-                      .getElementById("your-program")
-                      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                  }, 100);
-                }}
-                className="group relative overflow-hidden
-                           inline-flex items-center justify-center
-                           rounded-md px-6 sm:px-2 py-4 sm:py-5
-                           text-sm sm:text-[19px] font-bold tracking-[0.3px]
-                           bg-[#000] text-white
-                           shadow-[0_6px_0_#ea7c22]
-                           transition-all duration-500 ease-out
-                           hover:scale-105 hover:-translate-y-1
-                           hover:shadow-[0_12px_20px_rgba(234,124,34,0.5)]
-                           active:translate-y-[2px] active:shadow-[0_4px_0_#ea7c22]
-                           max-w-[380px] sm:max-w-[760px] text-center"
-              >
-                <span className="relative z-10">
-                  Let’s Bring Leadership Transformation to Your Organization
-                </span>
-
-                <span
-                  className="absolute top-0 -left-[60%] w-[50%] h-full
-                             bg-[#ea7c22]/40
-                             transition-all duration-[1000ms] ease-[cubic-bezier(0.4,0,0.2,1)]
-                             [clip-path:polygon(0%_0%,55%_0%,100%_100%,25%_100%)]
-                             group-hover:left-[130%] group-hover:opacity-0"
-                />
-
-                <span
-                  className="absolute inset-0 bg-[#ea7c22]/10
-                             opacity-0 group-hover:opacity-100
-                             transition-opacity duration-500"
-                />
-              </button>
-
-              <p className="mt-4 text-[14px] sm:text-[19px] text-black max-w-xl">
-                Book a consultation to discuss customized speaking sessions,
-                workshops, or leadership interventions.
-              </p>
-            </div>
-          </div>
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 sm:gap-6">
+          {cards.map((card, idx) => (
+            <InsightCard
+              key={`${card.title}-${idx}`}
+              tag={card.tag}
+              title={card.title}
+              description={card.description}
+            />
+          ))}
         </div>
       </div>
     </section>

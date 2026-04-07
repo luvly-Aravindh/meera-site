@@ -14,6 +14,7 @@ export default {
         afacad: ["Afacad", "sans-serif"],          // New York font
         nicky: ['"Nicky Sans"', "sans-serif"],
         elmessiri: ['"El Messiri"', "serif"],
+        NickySans: ['"NickySans"', "sans-serif"],
       },
       keyframes: {
         scroll: {
