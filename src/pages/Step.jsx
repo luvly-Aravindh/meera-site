@@ -213,9 +213,15 @@ export default function PowerSection() {
 
         {/* CTA */}
         <div className="text-center">
-          <button className="mt-12 bg-[#FC7900] text-white px-8 py-4 uppercase text-xs sm:text-base tracking-widest">
-            Explore What’s Possible For You
-          </button>
+         <a
+  href="https://tidycal.com/meeragrover/book-your-call-with-meera"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="mt-12 bg-[#FC7900] text-white px-8 py-4 uppercase text-xs sm:text-base tracking-widest">
+    Explore What’s Possible For You
+  </button>
+</a>
         </div>
       </div>
     </section>

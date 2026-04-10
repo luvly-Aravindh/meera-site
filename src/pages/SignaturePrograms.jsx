@@ -337,9 +337,15 @@ export default function SignaturePrograms() {
                   </div>
 
                   <div className="flex justify-center lg:justify-start">
-                    <button className="mt-8 bg-[#F47A0B] px-6 py-3 text-xs font-semibold tracking-wider text-white uppercase hover:bg-[#e06c05] transition font-NickySans">
-                      Start Your Leadership Journey
-                    </button>
+                  <a
+  href="https://tidycal.com/meeragrover/book-your-call-with-meera"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="mt-8 bg-[#F47A0B] px-6 py-3 text-xs font-semibold tracking-wider text-white uppercase hover:bg-[#e06c05] transition font-NickySans">
+    Start Your Leadership Journey
+  </button>
+</a>
                   </div>
 
                 </article>
@@ -365,9 +371,15 @@ export default function SignaturePrograms() {
                   </p>
 
                   {/* CTA button */}
-                  <button className="font-nickySans bg-[#f47a0b] text-white font-semibold text-base sm:text-lg uppercase tracking-widest py-5 px-12  shadow-lg hover:scale-105 hover:shadow-orange-600 transition-transform duration-200">
-                    LET'S DO THIS
-                  </button>
+                 <a
+  href="https://tidycal.com/meeragrover/book-your-call-with-meera"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="font-nickySans bg-[#f47a0b] text-white font-semibold text-base sm:text-lg uppercase tracking-widest py-5 px-12 shadow-lg hover:scale-105 hover:shadow-orange-600 transition-transform duration-200">
+    LET'S DO THIS
+  </button>
+</a>
 
                 </div>
 
@@ -495,9 +507,15 @@ export default function SignaturePrograms() {
 
                 {/* CTA button */}
 
-                <button className="mt-8 bg-[#f47b20] hover:bg-[#df6f1b] text-white uppercase tracking-[0.12em] text-[13px] px-10 py-4 transition">
-                  LET'S DO THIS
-                </button>
+               <a
+  href="https://tidycal.com/meeragrover/book-your-call-with-meera"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="mt-8 bg-[#f47b20] hover:bg-[#df6f1b] text-white uppercase tracking-[0.12em] text-[13px] px-10 py-4 transition">
+    LET'S DO THIS
+  </button>
+</a>
 
               </div>
 

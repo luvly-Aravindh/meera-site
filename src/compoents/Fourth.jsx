@@ -69,15 +69,14 @@ export default function Fourth() {
               </p>
             </div>
 
-            <button
-              type="button"
-              onClick={() => {
-                document.getElementById("your-program")?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="mt-9 inline-flex items-center justify-center bg-[#f5811f] hover:bg-[#e47416] text-white font-nicky uppercase tracking-[0.11em] text-[13px] px-8 py-4 transition-colors duration-200"
-            >
-              Claim Your Leadership
-            </button>
+            <a
+  href="https://tidycal.com/meeragrover/book-your-call-with-meera"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-9 inline-flex items-center justify-center bg-[#f5811f] hover:bg-[#e47416] text-white font-nicky uppercase tracking-[0.11em] text-[13px] px-8 py-4 transition-colors duration-200"
+>
+  Claim Your Leadership
+</a>
           </div>
 
           <div>

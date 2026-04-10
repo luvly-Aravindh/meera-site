@@ -97,12 +97,14 @@ className={`
   </div>
 </div>
 
-        <button
-          type="button"
-          className="mt-10 inline-flex items-center justify-center bg-[#F59E0B] px-8 py-4 font-nicky text-[12px] font-bold uppercase tracking-[0.12em] text-black transition-colors duration-200 hover:bg-[#D88907]"
-        >
-          Step Into Your Power
-        </button>
+      <a
+  href="https://tidycal.com/meeragrover/book-your-call-with-meera"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-10 inline-flex items-center justify-center bg-[#F59E0B] px-8 py-4 font-nicky text-[12px] font-bold uppercase tracking-[0.12em] text-black transition-colors duration-200 hover:bg-[#D88907]"
+>
+  Step Into Your Power
+</a>
 
         <p className="mx-auto mb-14 mt-14 max-w-4xl text-[28px] leading-tight text-[#F59E0B] sm:text-[25px] font-elmessiri">
           15+ national and international certifications supporting leadership transformation

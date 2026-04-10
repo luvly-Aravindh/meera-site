@@ -92,17 +92,14 @@ export default function Hero() {
               help you go from overlooked to undeniable.
             </p>
 
-            <button
-              type="button"
-              onClick={() => {
-                document
-                  .getElementById("your-program")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="mt-10 mx-auto lg:mx-0 inline-flex items-center justify-center bg-[#f47b20] hover:bg-[#df6f1b] text-white font-nicky uppercase tracking-[0.1em] text-[12px] sm:text-[13px] px-8 sm:px-10 py-4 transition-colors duration-200"
-            >
-              Step Into Your Power
-            </button>
+            <a
+  href="https://tidycal.com/meeragrover/book-your-call-with-meera"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-10 mx-auto lg:mx-0 inline-flex items-center justify-center bg-[#f47b20] hover:bg-[#df6f1b] text-white font-nicky uppercase tracking-[0.1em] text-[12px] sm:text-[13px] px-8 sm:px-10 py-4 transition-colors duration-200"
+>
+  Step Into Your Power
+</a>
 
             <div
               ref={statsRef}

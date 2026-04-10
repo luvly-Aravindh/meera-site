@@ -54,9 +54,15 @@ const WhyWorkWithMe = () => {
     </div>
 
     {/* CTA BUTTON */}
-    <button className="mt-8 bg-[#f47b20] hover:bg-[#df6f1b] text-white uppercase tracking-[0.12em] text-[13px] px-10 py-4 transition">
-      Build Your Leadership Blueprint
-    </button>
+    <a
+  href="https://tidycal.com/meeragrover/book-your-call-with-meera"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="mt-8 bg-[#f47b20] hover:bg-[#df6f1b] text-white uppercase tracking-[0.12em] text-[13px] px-10 py-4 transition">
+    Build Your Leadership Blueprint
+  </button>
+</a>
 
     {/* BOTTOM TAGLINE */}
     <p className="mt-12 text-black text-[16px] sm:text-xl">

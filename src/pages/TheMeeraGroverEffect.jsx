@@ -47,9 +47,15 @@ export default function TheMeeraGroverEffect() {
             worked for aspiring leaders.
           </p>
 
-          <button className="mt-6 bg-[#FC7900] text-white text-[12px] sm:text-base tracking-[0.15em] uppercase px-8 py-4 font-semibold font-NickySans">
-            YOUR STORY OF TRANSFORMATION STARTS HERE
-          </button>
+         <a
+  href="https://tidycal.com/meeragrover/book-your-call-with-meera"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="mt-6 bg-[#FC7900] text-white text-[12px] sm:text-base tracking-[0.15em] uppercase px-8 py-4 font-semibold font-NickySans">
+    YOUR STORY OF TRANSFORMATION STARTS HERE
+  </button>
+</a>
         </div>
 
       </div>
