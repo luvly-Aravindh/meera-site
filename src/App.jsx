@@ -17,6 +17,7 @@ import SignaturePrograms from './pages/SignaturePrograms'
 import WhyWorkWithMe from './pages/WhyWorkWithMe'
 import TheMeeraGroverEffect from './pages/TheMeeraGroverEffect'
 import Blogs from './pages/Blogs'
+import BlogDetail from './pages/BlogDetail'
 import Help from './pages/Help'
 import Perfmance from "../src/pages/Perfamnce"
 import Inspire from "../src/pages/Inspire"
@@ -92,7 +93,7 @@ function App() {
             <Help />
             <Behind/>
             <Perfmance/>
-            <Inspire/>
+            {/* <Inspire/> */}
             <Footer />
           </>
         }
@@ -113,6 +114,16 @@ function App() {
           <>
             <Header />
             <Blogs />
+            <Footer />
+          </>
+        }
+      />
+      <Route
+        path="/blogs/:slug"
+        element={
+          <>
+            <Header />
+            <BlogDetail />
             <Footer />
           </>
         }

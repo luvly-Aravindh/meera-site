@@ -56,7 +56,7 @@ export default function MeeraGroverStats() {
           <p className="text-[40px] font-semibold">
             <Counter end={89} suffix="+" />
           </p>
-          <p className="text-[12px] tracking-[0.15em] uppercase mt-2">
+          <p className="text-[12px] sm:text-lg tracking-[0.15em] uppercase mt-2">
             Programs Delivered
           </p>
         </div>
@@ -66,7 +66,7 @@ export default function MeeraGroverStats() {
           <p className="text-[40px] font-semibold">
             <Counter end={3000} suffix="+" />
           </p>
-          <p className="text-[12px] tracking-[0.15em] uppercase mt-2">
+          <p className="text-[12px] sm:text-lg tracking-[0.15em] uppercase mt-2">
             Coaching Hours
           </p>
         </div>
@@ -76,7 +76,7 @@ export default function MeeraGroverStats() {
           <p className="text-[40px] font-semibold">
             <Counter end={90} suffix="%" />
           </p>
-          <p className="text-[12px] tracking-[0.15em] uppercase mt-2">
+          <p className="text-[12px] sm:text-lg tracking-[0.15em] uppercase mt-2">
             Satisfaction Rate
           </p>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import heroImage from "../assets/social.jpg";
+import heroImage from "../assets/social.png";
 
 const WhyWorkWithMe = () => {
   return (
@@ -27,7 +27,7 @@ const WhyWorkWithMe = () => {
     </h1>
 
     {/* PARAGRAPHS */}
-    <div className="mt-7 space-y-5 text-[16px] leading-[1.8] text-[#6a6059]">
+    <div className="mt-7 space-y-5 text-[16px] sm:text-xl leading-[1.8] text-black">
       <p>
         With 21+ years in global L&D leadership and 1,200+ senior leaders
         coached, I’ve worked with professionals across Hapag-Lloyd, Frost &
@@ -59,7 +59,7 @@ const WhyWorkWithMe = () => {
     </button>
 
     {/* BOTTOM TAGLINE */}
-    <p className="mt-12 text-[#444] text-[16px]">
+    <p className="mt-12 text-black text-[16px] sm:text-xl">
       Join leaders who are already transforming how they show up and lead.
     </p>
 

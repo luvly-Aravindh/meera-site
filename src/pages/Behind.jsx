@@ -43,7 +43,7 @@ const Behind = () => {
   The Framework Behind <br className="hidden lg:block" /> the Work
 </h3>
 
-  <p className="text-[#7a6f67] mt-5 text-[17px] max-w-[480px] font-NickySans">
+  <p className="text-black mt-5 text-[17px] sm:text-xl max-w-[480px] font-NickySans">
     I integrate globally recognised methods to deliver executive
     leadership coaching that drives lasting change:
   </p>

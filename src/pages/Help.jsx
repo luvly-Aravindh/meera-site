@@ -43,7 +43,7 @@ const Help = () => {
                 ✓
               </span>
 
-              <p className="text-[#4a4038] text-[16px] leading-relaxed font-nickySans">
+              <p className="text-black text-[16px] sm:text-xl leading-relaxed font-nickySans">
                 {item}
               </p>
             </li>
@@ -73,7 +73,7 @@ const Help = () => {
                 ✓
               </span>
 
-              <p className="text-[#4a4038] text-[16px] leading-relaxed font-NickySans">
+              <p className="text-black text-[16px] sm:text-xl leading-relaxed font-NickySans">
                 {item}
               </p>
             </li>

@@ -49,7 +49,7 @@ export default function RealityCheck() {
             key={index}
             className="bg-[#f3f3f3] p-8 flex flex-col justify-between min-h-[180px]"
           >
-            <p className="text-gray-700 text-[15px] leading-relaxed">
+            <p className="text-gray-700 text-[15px] sm:text-xl leading-relaxed">
               {item.text}
             </p>
 

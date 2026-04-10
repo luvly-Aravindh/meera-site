@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import stageImage from '../assets/coach.jpg'
-import rectangleBg from '../assets/sm.jpg'
-import groupImage from '../assets/right.png'
+import leftCardBg from '../assets/sm.jpg'
+import rightCardBg from '../assets/sm-2.png'
+import groupImage from '../assets/right.jpg'
 import arrow from '../assets/arrow.png'
 import Reality from '../Reality'
 import New from '../compoents/New'
@@ -152,19 +153,19 @@ function ArrowList({ items, arrowImg, textColor = 'text-[#1A1A1A]' }) {
   )
 }
 
-function JourneySideCard({ journey, isActive, onClick, align = 'left' }) {
+function JourneySideCard({ journey, isActive, onClick, imageSrc, imageFit = 'cover', align = 'left' }) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className={`group relative min-h-[220px] w-full overflow-hidden text-left ${isActive ? 'ring-2 ring-[#F47A0B]' : ''}`}
+      className={`group relative min-h-[220px] w-full overflow-hidden bg-[#F47A0B] text-left ${isActive ? 'ring-2 ring-[#F47A0B]' : ''}`}
     >
    
       <img
-        src={rectangleBg}
+        src={imageSrc}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full object-cover opacity-85  transition-opacity max-w-[100rem]"
+        className={`absolute inset-0 w-full  transition-opacity max-w-[100rem] ${imageFit === 'contain' ? 'h-full object-contain' : 'object-cover'}`}
       />
       <div className="absolute bottom-7 left-7 z-10">
         <p className="font-elmessiri text-[44px] leading-none text-white">{journey.title}</p>
@@ -184,10 +185,9 @@ export default function SignaturePrograms() {
   return (
     <main className="bg-gradient-to-b from-[#F4F4F4] via-[#FFFDF9] to-[#FDF3E2] text-[#3A2615]">
       <section className="mx-auto max-w-[90rem] px-4 sm:px-8 lg:px-12 py-12 md:py-16 text-center lg:text-left">
-        <div className="grid items-end gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-
-          <div>
-            <p className="inline-flex items-center justify-center lg:justify-start gap-3 text-sm tracking-[0.18em] uppercase text-[#FC7900] font-semibold">
+        <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 text-center">
+          <div className="flex flex-col items-center">
+            <p className="inline-flex items-center justify-center gap-3 text-sm tracking-[0.18em] uppercase text-[#FC7900] font-semibold">
               <span className="h-px w-8 bg-[#D96F12]" aria-hidden="true" />
               Signature Programs
             </p>
@@ -206,11 +206,10 @@ export default function SignaturePrograms() {
             </h1>
           </div>
 
-          <p className="max-w-xl mx-auto lg:mx-0 text-base md:text-base leading-relaxed text-[#7E6E61] lg:mb-3 lg:justify-self-end">
+          <p className="max-w-2xl sm:text-xl text-base leading-relaxed text-[#000]">
             Designed to support growth at every stage - from building confidence to
             leading with influence. Available virtually and in person.
           </p>
-
         </div>
       </section>
       <section className="mx-auto max-w-[95rem] px-2 sm:px-8 lg:px-0 pb-6">
@@ -251,6 +250,7 @@ export default function SignaturePrograms() {
                 journey={individualJourneys[leftJourneyIndex]}
                 isActive={false}
                 onClick={() => setActiveJourney(leftJourneyIndex)}
+                imageSrc={leftCardBg}
                 align="left"
               />
 
@@ -272,6 +272,8 @@ export default function SignaturePrograms() {
                 journey={individualJourneys[rightJourneyIndex]}
                 isActive={false}
                 onClick={() => setActiveJourney(rightJourneyIndex)}
+                imageSrc={rightCardBg}
+                imageFit="contain"
                 align="right"
               />
             </div>
@@ -288,7 +290,7 @@ export default function SignaturePrograms() {
                     Workshops & Masterclasses
                   </h3>
 
-                  <p className="mt-4 text-[16px] md:text-base text-[#666666]">
+                  <p className="mt-4 text-[16px] md:text-xl text-black">
                     Focused sessions designed for immediate, practical breakthroughs.
                   </p>
 
@@ -298,7 +300,7 @@ export default function SignaturePrograms() {
 
                 </article>
 
-                <div className="h-[360px] md:h-[480px]">
+                <div className="h-[360px] md:h-auto">
                   <img
                     src={groupImage}
                     alt="Workshop collaboration"
@@ -326,7 +328,7 @@ export default function SignaturePrograms() {
                     1:1 Coaching
                   </h3>
 
-                  <h3 className="mt-4 text-sm md:text-base text-[#666666]">
+                  <h3 className="mt-4 text-sm md:text-xl text-black">
                     Personalised leadership & career coaching designed around your goals.
                   </h3>
 
@@ -355,7 +357,7 @@ export default function SignaturePrograms() {
                   </h1>
 
                   {/* Description */}
-                  <p className="text-[#7b6d63] text-lg sm:text-base leading-relaxed mb-12 max-w-[620px] font-nickySans">
+                  <p className="text-[#7b6d63] text-lg sm:text-xl leading-relaxed mb-12 max-w-auto font-nickySans">
                     You don’t have to keep questioning what’s next. There is a way to grow
                     where you are or move confidently toward where you truly belong.
                     <br />

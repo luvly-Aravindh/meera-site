@@ -1,83 +1,222 @@
-import React, { useMemo, useRef, useEffect } from "react";
+import React, { useMemo, useRef, useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function PowerSection() {
   const sliderRef = useRef(null);
+  const animationRef = useRef(null);
+  const playersRef = useRef([]);
+
+  const [activePlayer, setActivePlayer] = useState(null);
+  const [isHovering, setIsHovering] = useState(false);
+  const [isManualScroll, setIsManualScroll] = useState(false);
 
   const videos = useMemo(
     () => [
       { id: "ntw29dozvp" },
       { id: "n9flji9ocm" },
       { id: "tgq7ffhkh9" },
+      { id: "xxnaerdqz1" },
+      { id: "wky53ff7t1" },
     ],
     []
   );
 
-  // Auto slide
+  const loopVideos = [...videos, ...videos];
+
+  // Load Wistia
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://fast.wistia.com/assets/external/E-v1.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
+  // Players
+  useEffect(() => {
+    window._wq = window._wq || [];
+
+    loopVideos.forEach((video, index) => {
+      window._wq.push({
+        id: video.id,
+        options: { muted: true },
+        onReady: (player) => {
+          playersRef.current[index] = player;
+
+          player.bind("play", () => {
+            if (activePlayer && activePlayer !== player) {
+              try {
+                activePlayer.pause();
+              } catch {}
+            }
+            setActivePlayer(player);
+          });
+
+          player.bind("pause", () => {
+            setTimeout(() => {
+              if (activePlayer === player) setActivePlayer(null);
+            }, 200);
+          });
+
+          player.bind("end", () => {
+            if (activePlayer === player) setActivePlayer(null);
+          });
+        },
+      });
+    });
+  }, [loopVideos, activePlayer]);
+
+  // Auto scroll
   useEffect(() => {
     const slider = sliderRef.current;
     if (!slider) return;
 
-    let index = 0;
+    let scrollAmount = slider.scrollLeft;
+    const speed = 0.5;
 
-    const interval = setInterval(() => {
-      if (window.innerWidth >= 768) return;
+    const step = () => {
+      scrollAmount += speed;
+      slider.scrollLeft = scrollAmount;
 
-      index = (index + 1) % videos.length;
+      if (scrollAmount >= slider.scrollWidth / 2) {
+        scrollAmount = 0;
+        slider.scrollLeft = 0;
+      }
 
-      slider.scrollTo({
-        left: slider.clientWidth * index,
-        behavior: "smooth",
-      });
-    }, 3000);
+      animationRef.current = requestAnimationFrame(step);
+    };
 
-    return () => clearInterval(interval);
-  }, [videos.length]);
+    const shouldPause =
+      activePlayer !== null || isHovering || isManualScroll;
+
+    if (!shouldPause) {
+      animationRef.current = requestAnimationFrame(step);
+    }
+
+    return () => cancelAnimationFrame(animationRef.current);
+  }, [activePlayer, isHovering, isManualScroll]);
+
+  // Scroll buttons
+  const scrollLeft = () => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    setIsManualScroll(true);
+
+    slider.scrollBy({
+      left: -slider.offsetWidth,
+      behavior: "smooth",
+    });
+
+    setTimeout(() => setIsManualScroll(false), 1000);
+  };
+
+  const scrollRight = () => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    setIsManualScroll(true);
+
+    slider.scrollBy({
+      left: slider.offsetWidth,
+      behavior: "smooth",
+    });
+
+    setTimeout(() => setIsManualScroll(false), 1000);
+  };
 
   return (
-    <section className="bg-[#F3F1EF] py-4">
-      <div className="max-w-[1200px] mx-auto px-6 text-center">
+    <section className="bg-[#F3F1EF] py-10">
+      <div className="max-w-[1300px] mx-auto px-4">
 
         {/* Heading */}
-        <h2 className="text-[36px] md:text-[42px] font-semibold text-[#222] font-NickySans">
-          See What’s Possible When You
-        </h2>
+        <div className="text-center">
+          <h2 className="text-[22px] sm:text-[42px] font-semibold text-[#222]">
+            See What’s Possible When You
+          </h2>
 
-        <h3 className="text-[36px] md:text-[42px] text-[#FC7900] font-elmessiri mt-2">
-          Step Into Your Power
-        </h3>
+          <h3 className="text-[22px] sm:text-[42px] text-[#FC7900] mt-2">
+            Step Into Your Power
+          </h3>
 
-        <p className="text-[#7E6E61] text-sm mt-3 font-NickySans">
-          Your story of transformation starts here.
-        </p>
+          <p className="text-sm md:text-lg mt-3">
+            Your story of transformation starts here.
+          </p>
+        </div>
 
-        {/* Video Slider */}
-        <div
-          ref={sliderRef}
-          className="flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible snap-x snap-mandatory mt-14"
-        >
-          {videos.map((video, index) => (
-            <div
-              key={index}
-              className="w-full flex-shrink-0 md:w-auto snap-center px-2"
-            >
-              <div className="rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  src={`https://fast.wistia.net/embed/iframe/${video.id}`}
-                  allow="autoplay; fullscreen"
-                  allowFullScreen
-                  className="w-full h-[420px]"
-                  title={`video-${index}`}
-                />
+        {/* Slider + Arrows Row */}
+        <div className="flex items-center mt-10 gap-4">
+
+          {/* LEFT ARROW */}
+          <button
+            onClick={scrollLeft}
+            className="hidden md:flex items-center justify-center bg-white shadow-md rounded-full p-3 hover:scale-110 transition"
+          >
+            <ChevronLeft size={26} />
+          </button>
+
+          {/* Slider */}
+          <div
+            ref={sliderRef}
+            className="flex overflow-hidden flex-1"
+          >
+            {loopVideos.map((video, index) => (
+              <div
+                key={index}
+                className="w-full md:w-1/3 px-2 flex-shrink-0"
+              >
+                <div
+                  className="rounded-xl overflow-hidden shadow-lg"
+                  onMouseEnter={() => setIsHovering(true)}
+                  onMouseLeave={() => setIsHovering(false)}
+                  onTouchStart={() => setIsHovering(true)}
+                  onTouchEnd={() =>
+                    setTimeout(() => setIsHovering(false), 1500)
+                  }
+                >
+                  <iframe
+                    src={`https://fast.wistia.net/embed/iframe/${video.id}?mute=1&playerInstance=${index}`}
+                    allow="autoplay; fullscreen"
+                    allowFullScreen
+                    className="w-full h-[300px] md:h-[420px]"
+                    title={`video-${index}`}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* RIGHT ARROW */}
+          <button
+            onClick={scrollRight}
+            className="hidden md:flex items-center justify-center bg-white shadow-md rounded-full p-3 hover:scale-110 transition"
+          >
+            <ChevronRight size={26} />
+          </button>
+        </div>
+
+        {/* Mobile Arrows */}
+        <div className="flex justify-center gap-6 mt-6 md:hidden">
+          <button
+            onClick={scrollLeft}
+            className="bg-white shadow-md rounded-full p-3"
+          >
+            <ChevronLeft size={22} />
+          </button>
+
+          <button
+            onClick={scrollRight}
+            className="bg-white shadow-md rounded-full p-3"
+          >
+            <ChevronRight size={22} />
+          </button>
         </div>
 
         {/* CTA */}
-        <button className="mt-14 bg-[#FC7900] text-white text-[12px] tracking-[0.18em] uppercase px-10 py-4 font-semibold font-NickySans">
-          Explore What’s Possible For You
-        </button>
-
+        <div className="text-center">
+          <button className="mt-12 bg-[#FC7900] text-white px-8 py-4 uppercase text-xs sm:text-base tracking-widest">
+            Explore What’s Possible For You
+          </button>
+        </div>
       </div>
     </section>
   );

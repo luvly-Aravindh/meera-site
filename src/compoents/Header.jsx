@@ -1,74 +1,95 @@
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
-import logo from '../assets/logo.png'
-
-const linkBase =
-  'font-nicky shrink-0 whitespace-nowrap text-[9px] sm:text-[10px] md:text-[14px] uppercase tracking-[0.08em] text-[#776760] hover:text-[#4f443f] transition-colors duration-200'
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const navItems = [
-  { label: 'Home', to: '/' },
-  { label: 'Signature Programs', to: '/signature-programs' },
-  { label: 'Why Work With Me', to: '/why-work-with-me' },
-  { label: 'MG Effect', to: '/meera-grover-effect' },
-  { label: 'Blog', to: '/blogs' },
-]
+  { label: "Home", to: "/" },
+  { label: "Signature Programs", to: "/signature-programs" },
+  { label: "Why Work With Me", to: "/why-work-with-me" },
+  { label: "MG Effect", to: "/meera-grover-effect" },
+  { label: "Blog", to: "/blogs" },
+];
 
 export default function HeaderStrip() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev)
-  const closeMenu = () => setIsMenuOpen(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="w-full bg-[#f3f1ef] border-b border-[#d8d1cc]">
-      <div className="mx-auto max-w-[95rem] px-5 sm:px-12">
-        <div className="relative flex items-center py-3 md:py-4">
-          <div className="shrink-0 z-10">
-            <NavLink to="/" aria-label="Go to home" onClick={closeMenu}>
-              <img
-                src={logo}
-                alt="Meera Grover Logo"
-                className="h-12 sm:h-14 md:h-16 w-auto object-contain"
-              />
-            </NavLink>
-          </div>
+    <header className="w-full bg-[#f3f1ef] border-b border-[#d8d1cc] sticky top-0 z-50">
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
+        
+        {/* Top Row */}
+        <div className="flex items-center justify-between py-3 md:py-4">
+          
+          {/* LOGO */}
+          <NavLink to="/" onClick={() => setIsMenuOpen(false)}>
+            <img
+              src={logo}
+              alt="Meera Grover Logo"
+              className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
+            />
+          </NavLink>
 
-          <button
-            type="button"
-            aria-label="Toggle navigation menu"
-            aria-expanded={isMenuOpen}
-            onClick={toggleMenu}
-            className="ml-auto z-10 md:hidden inline-flex h-10 w-10 items-center justify-center rounded border border-[#cfc5be] text-[#776760]"
-          >
-            <span className="sr-only">Open main menu</span>
-            <span className="relative block h-4 w-5">
-              <span
-                className={`absolute left-0 top-0 h-[2px] w-5 bg-current transition-transform duration-200 ${
-                  isMenuOpen ? 'translate-y-[7px] rotate-45' : ''
-                }`}
-              />
-              <span
-                className={`absolute left-0 top-[7px] h-[2px] w-5 bg-current transition-opacity duration-200 ${
-                  isMenuOpen ? 'opacity-0' : 'opacity-100'
-                }`}
-              />
-              <span
-                className={`absolute left-0 top-[14px] h-[2px] w-5 bg-current transition-transform duration-200 ${
-                  isMenuOpen ? '-translate-y-[7px] -rotate-45' : ''
-                }`}
-              />
-            </span>
-          </button>
-
-          <nav className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center justify-center gap-3 sm:gap-5 md:gap-8 lg:gap-10 text-sm lg:text-2xl font-medium">
+          {/* DESKTOP NAV */}
+          <nav className="hidden md:flex items-center gap-4 lg:gap-8">
             {navItems.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
                 className={({ isActive }) =>
-                  `${linkBase} ${isActive ? 'text-[#7E6E61]' : ''}`
+                  `text-[12px] lg:text-lg uppercase tracking-[0.08em] font-medium transition ${
+                    isActive
+                      ? "text-[#4f443f]"
+                      : "text-black hover:text-[#4f443f]"
+                  }`
                 }
-                onClick={closeMenu}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </nav>
+
+          {/* MOBILE MENU BUTTON */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden flex flex-col justify-center items-center w-10 h-10 border border-[#cfc5be] rounded"
+          >
+            <span
+              className={`block w-5 h-[2px] bg-[#776760] transition-all ${
+                isMenuOpen ? "rotate-45 translate-y-[6px]" : ""
+              }`}
+            />
+            <span
+              className={`block w-5 h-[2px] bg-[#776760] my-[5px] transition-all ${
+                isMenuOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block w-5 h-[2px] bg-[#776760] transition-all ${
+                isMenuOpen ? "-rotate-45 -translate-y-[6px]" : ""
+              }`}
+            />
+          </button>
+        </div>
+
+        {/* MOBILE MENU */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ${
+            isMenuOpen ? "max-h-[300px] pb-4" : "max-h-0"
+          }`}
+        >
+          <nav className="flex flex-col gap-4 pt-2 border-t border-[#e5dfda]">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                onClick={() => setIsMenuOpen(false)}
+                className={({ isActive }) =>
+                  `text-[13px] uppercase tracking-[0.08em] font-medium ${
+                    isActive
+                      ? "text-[#4f443f]"
+                      : "text-[#776760]"
+                  }`
+                }
               >
                 {item.label}
               </NavLink>
@@ -76,25 +97,7 @@ export default function HeaderStrip() {
           </nav>
         </div>
 
-        {isMenuOpen && (
-          <nav className="md:hidden pb-4 flex flex-col gap-3">
-            {navItems.map((item) => (
-              <NavLink
-                key={`mobile-${item.to}`}
-                to={item.to}
-                className={({ isActive }) =>
-                  `font-nicky text-[12px] uppercase tracking-[0.08em] text-[#776760] ${
-                    isActive ? 'text-[#7E6E61]' : ''
-                  }`
-                }
-                onClick={closeMenu}
-              >
-                {item.label}
-              </NavLink>
-            ))}
-          </nav>
-        )}
       </div>
     </header>
-  )
+  );
 }

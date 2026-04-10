@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import heroImage from "../assets/Hero.jpg";
+import heroImage from "../assets/Hero.png";
 
 export default function Hero() {
   const statsRef = useRef(null);
@@ -72,7 +72,7 @@ export default function Hero() {
             <div className="flex items-center justify-center lg:justify-start gap-4">
               <span className="h-[2px] w-8 bg-[#f47b20]" />
               <p className="font-nicky text-[11px] sm:text-[13px] tracking-[0.16em] uppercase text-[#f47b20] font-semibold">
-                Executive Leadership Coaching
+                Executive Leadership and Mindset Coaching
               </p>
             </div>
 
@@ -84,7 +84,7 @@ export default function Hero() {
               <span className="block mt-0">and Impact</span>
             </h1>
 
-            <p className="mt-7 text-[#6a6059] text-[17px] leading-[1.8] max-w-[520px] mx-auto lg:mx-0 font-medium">
+            <p className="mt-7 text-black text-[17px] sm:text-lg leading-[1.8] max-w-[520px] mx-auto lg:mx-0 font-medium">
               Ready to be seen, heard, and unstoppable in your leadership? I
               help ambitious leaders rise through leadership &amp; career
               coaching, strengthening confidence, influence, and a clear brand
@@ -112,7 +112,7 @@ export default function Hero() {
                 <p className="text-[#FC7900] text-[36px] leading-none font-elmessiri font-semibold">
                   {counts.leaders.toLocaleString()}+
                 </p>
-                <p className="mt-2 font-nicky text-[9px] sm:text-[10px] lg:text-[11px] tracking-[0.08em] uppercase text-[#7E6E61] font-semibold">
+                <p className="mt-2 font-nicky text-[9px] sm:text-[12px] lg:text-[11px] tracking-[0.08em] uppercase text-[#000] font-semibold">
                   Senior Leaders Coached
                 </p>
               </div>
@@ -120,7 +120,7 @@ export default function Hero() {
                 <p className="text-[#FC7900] text-[36px] leading-none font-elmessiri   font-semibold ">
                   {counts.professionals.toLocaleString()}+
                 </p>
-                <p className="mt-2 font-nicky text-[9px] sm:text-[10px] lg:text-[11px] tracking-[0.08em] uppercase text-[#7E6E61] font-semibold">
+                <p className="mt-2 font-nicky text-[9px] sm:text-[12px] lg:text-[11px] tracking-[0.08em] uppercase text-[#000] font-semibold">
                   Professionals Trained
                 </p>
               </div>
@@ -128,7 +128,7 @@ export default function Hero() {
                 <p className="text-[#FC7900] text-[36px] leading-none font-elmessiri   font-semibold">
                   {counts.years.toLocaleString()}+
                 </p>
-                <p className="mt-2 font-nicky text-[9px] sm:text-[10px] lg:text-[11px] tracking-[0.08em] uppercase text-[#7E6E61] font-semibold">
+                <p className="mt-2 font-nicky text-[9px] sm:text-[12px] lg:text-[11px] tracking-[0.08em] uppercase text-[#000] font-semibold">
                   Years Global L&amp;D
                 </p>
               </div>

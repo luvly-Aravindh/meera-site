@@ -1,5 +1,6 @@
 import mainImage from "../assets/IMG_5500.JPG";
 import arrowIcon from "../assets/arrow.png";
+import New from '../compoents/New'
 
 export default function PerformanceSection() {
   const items = [
@@ -30,7 +31,7 @@ export default function PerformanceSection() {
             How Performance <br /> Transformation Happens
           </h2>
 
-          <p className="text-gray-500 mt-3 text-base font-NickySans ">
+          <p className="text-black mt-3 text-base sm:text-xl font-NickySans ">
             Every engagement is structured to create visible, sustainable results.
           </p>
 
@@ -48,6 +49,8 @@ export default function PerformanceSection() {
         </div>
 
       </div>
+                  <New />
+
     </section>
   );
 }

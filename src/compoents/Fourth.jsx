@@ -52,19 +52,19 @@ export default function Fourth() {
 
             <div className="mt-6 text-black text-[120px] leading-[0.8] font-black font-onest">“</div>
 
-            <p className="mt-2 font-onest text-[#7a7068] text-[18px]">You're here to lead.</p>
+            <p className="mt-2 font-onest text-black text-[18px]">You're here to lead.</p>
 
             <div className="mt-8 space-y-4 max-w-[560px]">
-              <p className="font-onest text-[#7a7068] text-[16px] leading-[1.75]">
+              <p className="font-onest text-black text-[16px] leading-[1.75]">
                 Through leadership &amp; career coaching and executive leadership coaching, I help
                 ambitious professionals build executive presence, communicate with clarity, and create a
                 strong brand &amp; identity that gets noticed.
               </p>
-              <p className="font-onest text-[#7a7068] text-[16px] leading-[1.75]">
+              <p className="font-onest text-black text-[16px] leading-[1.75]">
                 If you feel overlooked despite delivering results, it's not a capability gap, it's a
                 visibility and positioning gap.
               </p>
-              <p className="font-onest text-[#7a7068] text-[16px] leading-[1.75]">
+              <p className="font-onest text-black text-[16px] leading-[1.75]">
                 It's time to step forward, own your leadership, and create impact on your terms.
               </p>
             </div>
